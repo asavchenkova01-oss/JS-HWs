@@ -94,13 +94,33 @@
 
 // დავალება 7
 
-let teams = ['Barcelona','Liverpool','Real Madrid', 'Manchester City', 'Bayern', 'Arsenal', 
-'Chelsea', 'Goris Dila', 'Mimino', 'Wnoris Milani', 'Saburtalo' ]
+// let teams = ['Barcelona','Liverpool','Real Madrid', 'Manchester City', 'Bayern', 'Arsenal', 
+// 'Chelsea', 'Goris Dila', 'Mimino', 'Wnoris Milani', 'Saburtalo' ]
 
-miminoIndex = teams.indexOf('Mimino')
+// miminoIndex = teams.indexOf('Mimino')
 
-if (miminoIndex %2 === 0){
-    console.log(miminoIndex + " ლუწია")
-} else {
-    console.log(miminoIndex + " კენტია")
+// if (miminoIndex %2 === 0){
+//     console.log(miminoIndex + " ლუწია")
+// } else {
+//     console.log(miminoIndex + " კენტია")
+// }
+
+// დავალება 8
+
+let myStudent = {
+    name: 'Student',
+    age: 27,
+    hasScolarship: false,
+    gpa: 2.7,
+    salary: [3000]
 }
+
+if (myStudent.hasScolarship){
+    myStudent.salary.push(1000)
+} else if (myStudent.gpa > 3){
+    myStudent.hasScolarship = true
+} else {
+    myStudent.salary = []
+}
+
+console.log(myStudent)
