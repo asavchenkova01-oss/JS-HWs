@@ -62,6 +62,19 @@
 
 // Task 5
 
+function countCharacter (arr, letter){
+    let counter = 0;
+
+    for(let x of arr){
+        if (x === letter){
+            counter++;
+        }
+    }
+    return counter;
+}
+
+console.log("Count of 'a':", countCharacter(['a','b','c','a','d','a'], 'a'));
+
 // Task 6
 
 function oddNumbers (arr){
