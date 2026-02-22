@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>FakeStore</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='main.css'>
+    
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">FakeStore</div>
+
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+    <div id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+
+    </div>
+  </header>
+
+
+  <main>
+  <section class="slider-section">
+    <div class="slider">
+      <button class="prev">❮</button>
+
+      <div class="slides"></div>
+
+      <button class="next">❯</button>
+    </div>
+  </section>
+
+  <section class="filters container">
+  <input type="text" id="searchInput" placeholder="Search by name..." />
+
+  <select id="categorySelect">
+    <option value="all">All Categories</option>
+  </select>
+
+  <div class="price-filter">
+    <label> Max Price: <span id="priceValue">0</span>$</label>
+    <input type="range" id="priceSlider" min="0" />
+  </div>
+  </section>
+
+  <section id="products" class="products container">
+  </section>
+
+  <section class="add-product container">
+    <h2>Add Product</h2>
+
+    <form id="productForm">
+      <input type="text" id="title" placeholder="Title"/>
+      <input type="number" id="price" placeholder="Price"/>
+      <input type="text" id="category" placeholder="Category"/>
+      <input type="text" id="image" placeholder="Image URL"/>
+      <textarea id="description" placeholder="Description"></textarea>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>Contact Us</h2>
+
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name"/>
+      <input type="email" placeholder="Your Email"/>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 FakeStore </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
