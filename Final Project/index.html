@@ -63,14 +63,16 @@
   <section class="add-product container">
     <h2>Add Product</h2>
 
-    <form id="productForm">
-      <input type="text" id="title" placeholder="Title"/>
-      <input type="number" id="price" placeholder="Price"/>
-      <input type="text" id="category" placeholder="Category"/>
-      <input type="text" id="image" placeholder="Image URL"/>
-      <textarea id="description" placeholder="Description"></textarea>
-
-      <button type="submit">Add Product</button>
+  <form id="productForm">
+        <input type="text" name="title" placeholder="Product Title">
+        <input type="number" name="price" placeholder="Price">
+        <input type="text" name="category" placeholder="Category">
+        <input type="text" name="image" placeholder="Image URL">
+        <input type="date" name="date" id="dateAdded">
+        
+        <p id="formError" style="color: red; display: none; margin-top: 10px;"></p>
+        
+        <button type="submit">Add Product</button>
     </form>
   </section>
 
@@ -78,10 +80,13 @@
     <h2>Contact Us</h2>
 
     <form id="contactForm">
-      <input type="text" placeholder="Your Name"/>
-      <input type="email" placeholder="Your Email"/>
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Submit</button>
+        <input type="text" name="userName" placeholder="Your Name">
+        <input type="email" name="userEmail" placeholder="Your Email">
+        <textarea name="userMessage" placeholder="Your Message"></textarea>
+        
+        <p id="contactError" style="color: red; display: none; margin-top: 10px;"></p>
+        
+        <button type="submit">Send Message</button>
     </form>
   </section>
   </main>

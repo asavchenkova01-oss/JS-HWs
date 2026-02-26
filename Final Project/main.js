@@ -142,26 +142,41 @@ function updateProduct(id) {
 productForm.addEventListener("submit", function(e) {
     e.preventDefault();
     
-    const newProduct = {
-        title: document.getElementById("title").value,
-        price: Number(document.getElementById("price").value),
-        category: document.getElementById("category").value,
-        image: document.getElementById("image").value,
-        description: document.getElementById("description").value
-    };
+    const errorDisplay = document.getElementById("formError");
+    errorDisplay.style.display = "none";
+
+    const formData = new FormData(productForm);
+    const data = Object.fromEntries(formData.entries());
+
+    if (!data.title || !data.price || !data.category || !data.image || !data.date) {
+        errorDisplay.textContent = "Error: Please fill in all fields!";
+        errorDisplay.style.display = "block";
+        return;
+    }
+
+    if (Number(data.price) <= 0) {
+        errorDisplay.textContent = "Error: Price must be a positive number!";
+        errorDisplay.style.display = "block";
+        return;
+    }
 
     fetch("https://fakestoreapi.com/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newProduct)
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => {
-        allProducts.push({ ...newProduct, id: Date.now() });
+    .then(() => {
+        allProducts.push({ 
+            ...data, 
+            id: Date.now(), 
+            price: Number(data.price) 
+        });
+        
         productForm.reset();
         applyFilters(); 
-        alert("Product added!");
-    });
+        alert("Product added successfully!");
+    })
 });
 
 // ვუსმენთ ფილტრებს
@@ -180,4 +195,31 @@ setInterval(() => moveSlide(1), 3000);
 // ბურგერი
 document.getElementById("burger").addEventListener("click", () => {
     document.querySelector(".nav-links").classList.toggle("active")
+});
+
+// საკონტაქტო ფორმა
+
+contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const errorDisplay = document.getElementById("contactError");
+    errorDisplay.style.display = "none";
+
+    const formData = new FormData(contactForm);
+    const contactData = Object.fromEntries(formData.entries());
+
+    if (!contactData.userName || !contactData.userEmail || !contactData.userMessage) {
+        errorDisplay.textContent = "Error: All contact fields are required!";
+        errorDisplay.style.display = "block";
+        return;
+    }
+
+    if (!contactData.userEmail.includes("@")) {
+        errorDisplay.textContent = "Error: Please enter a valid email address!";
+        errorDisplay.style.display = "block";
+        return;
+    }
+
+    alert(`Thank you, ${contactData.userName}! Your message has been sent.`);
+    contactForm.reset();
 });
